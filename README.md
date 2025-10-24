@@ -8,6 +8,7 @@ A simple **.NET 8 Web API** for managing books, authors, genres, and reviews.
 
 -   [Features](#features)
 -   [Technologies](#technologies)
+-   [Architecture Decisions](#architecture-decisions)
 -   [Setup](#setup)
 -   [Database](#database)
 -   [Authentication](#authentication)
