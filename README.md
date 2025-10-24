@@ -104,6 +104,8 @@ dotnet ef database update -p .\src\Bookstore.Data\ -s .\src\Bookstore.Api\
 
 -   Use `/api/auth/login` to generate a JWT for testing
 
+-   For testing purposes, two users are hardcoded, use `username: readonly` and `password: password` for the `Read` role and `username: admin` and `password: password` for the `ReadWrite` role
+
 ---
 
 ## Running the Application
