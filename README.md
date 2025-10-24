@@ -58,6 +58,44 @@ A simple **.NET 8 Web API** for managing books, authors, genres, and reviews.
 
 ---
 
+## Architecture Decisions
+
+-   **Project Structure:**
+
+    -   `Bookstore.Api` → Controllers, API layer
+    -   `Bookstore.Core` → Domain models, repository/service interfaces, DTOs shared across layers
+    -   `Bookstore.Data` → EF Core DbContext, repository implementations, migrations
+    -   `Bookstore.Services` → Business logic, services like `BookService`, `AuthorService` etc.
+    -   `Bookstore.Jobs` → Scheduled import jobs via Quartz.NET
+    -   `Bookstore.UnitTests` -> Unit tests
+    -   `Bookstore.IntegrationTests` -> Integration tests
+
+-   **Repositories & Services:**
+
+    -   Repositories handle database access (EF Core or Dapper for raw SQL queries)
+    -   Services contain business logic and use repositories, ensuring thin controllers
+
+-   **DTOs & AutoMapper:**
+
+    -   DTOs are used to separate internal models from API responses
+    -   AutoMapper handles mapping between models and DTOs
+
+-   **Authentication & Authorization:**
+
+    -   JWT tokens with `Read` and `ReadWrite` roles
+    -   Secures API endpoints appropriately
+
+-   **Scheduled Import Task:**
+
+    -   Uses Quartz.NET to run hourly import jobs
+    -   Optimized bulk inserts and caching of authors/genres to handle large datasets efficiently
+
+-   **Testing:**
+    -   Unit tests using xUnit + Moq
+    -   Integration tests using an in-memory or test database to validate API endpoints and data flows
+
+---
+
 ## Setup
 
 1. **Clone the repository**
