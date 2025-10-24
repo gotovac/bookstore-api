@@ -82,7 +82,7 @@ dotnet restore
 
 ```json
 "ConnectionStrings": {
-  "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=BookstoreDb;Trusted_Connection=True;MultipleActiveResultSets=true""
+  "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=BookstoreDb;Trusted_Connection=True;MultipleActiveResultSets=true"
 }
 ```
 
@@ -138,7 +138,7 @@ dotnet test
 -   Configured in `Bookstore.Jobs`
 -   Logging provides import statistics
 -   For testing purposes, you can trigger the import manually via the `POST /api/books/test-import` endpoint.
--   You can set the batch range inside of the Execute method in BookImportJob with the BookImportService.GenerateBooks(rangeStart, rangeEnd) method
+-   You can set the batch range inside of the `Execute` method in `BookImportJob` with the `BookImportService.GenerateBooks(minCount, maxCount)` method
 
 ---
 
