@@ -27,7 +27,7 @@ namespace Bookstore.Jobs.Jobs
             using var scope = _scopeFactory.CreateScope();
             var bookService = scope.ServiceProvider.GetRequiredService<IBookService>();
 
-            var importBooks = BookImportService.GenerateBooks(1, 2);
+            var importBooks = BookImportService.GenerateBooks(100000, 200000);
 
             _logger.LogInformation("Quartz job starting import of {Count} books", importBooks.Count);
             await bookService.ImportBooksAsync(importBooks);
